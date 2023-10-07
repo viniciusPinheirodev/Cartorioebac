@@ -1,6 +1,10 @@
 //o cliente deseja 3 telas;
 //uma com a inclusao(adicao de novos alunos), outra com a consulta(ver quem sao os alunos adicionados), e outra que delete(remover os alunos);
 
+//incrementos: fazer um looping para se quiser fazer ações repetidas, não tenha que voltar ao menu e abrir a função novamente;
+
+//*Problemas: cpfs iguais se sobrepõe, se no menu voce por uma letra o progama trava tendo que fechar e reabri-lo, tem como colocar letra no cpf, numero no nome, nao tem como repetir a funcao sem ter que voltar ao menu...
+
 #include <stdio.h> //biblioteca de comunicacao com o usuario
 #include <stdlib.h> //biblioteca de alocacao de espaco em memoria
 #include <locale.h> //biblioteca de alocacoes de texto por regiao
@@ -110,7 +114,7 @@ int deletar(){//funcao que deleta os usuarios
 	
 	if(file == NULL){
 		
-		printf("O usuario nï¿½o se encontra no sistema!\n\n");
+		printf("O usuario nao se encontra no sistema!\n\n");
 		system("pause");
 		file = 0;
 		
@@ -135,6 +139,7 @@ int main(){
 		printf("\t1 - Registrar nomes\n");
 		printf("\t2 - Consultar nomes\n");
 		printf("\t3 - Deletar nomes\n\n");
+		printf("\t4 - Sair do sistema\n\n");
 		printf("Opcao: ");//fim do menu
 	
 		scanf("%d", &opcao);	//%d armazena uma var de tipo inteiro; & referencia a var
@@ -177,7 +182,7 @@ int main(){
 				break;
 			}
 			
-				case 3:
+			case 3:
 			printf("deseja continuar? 1 para sim 2 para nao\nResposta: ");
 			scanf("%d", &resposta);
 			
@@ -193,6 +198,11 @@ int main(){
 				system("cls");
 				break;
 			}
+				
+			case 4:
+			printf("Obrigado por utilizar o sistema\n\n");
+			return 0;
+			break;
 						
 			default:
 			printf("Escolha uma opcao valida!\n\n");
