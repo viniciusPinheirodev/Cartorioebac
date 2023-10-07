@@ -128,90 +128,107 @@ int main(){
 	int opcao=0;//definindo as vars
 	int laco=1;
 	
-	for(laco=1;laco=1;){
+	char senhaDigitada[10] = "a";
+	int comparacao;
 	
-		int resposta = 0;
+	printf("--- Cartorio da EBAC ---\n\n");
+	printf("Login de adminstrador!\n\nDigite a sua senha: ");
+	scanf("%s", senhaDigitada);
+	
+	comparacao = strcmp(senhaDigitada, "admin");//funcao para comparar strings
+	
+	if(comparacao == 0){//comparacao tem que ser igual (por isso == a 0) para liberar o resto do codigo
 		
-		setlocale(LC_ALL, "Portuguese");//definindo a linguagem
+		//se for true o codigo segue
+		system("cls");
+		
+		for(laco=1;laco=1;){
 	
-		printf("--- Cartorio da EBAC ---\n\n");//inicio do menu
-		printf("Escolha a opcao desejada no menu:\n\n");
-		printf("\t1 - Registrar nomes\n");
-		printf("\t2 - Consultar nomes\n");
-		printf("\t3 - Deletar nomes\n\n");
-		printf("\t4 - Sair do sistema\n\n");
-		printf("Opcao: ");//fim do menu
+			int resposta = 0;
+		
+			setlocale(LC_ALL, "Portuguese");//definindo a linguagem
 	
-		scanf("%d", &opcao);	//%d armazena uma var de tipo inteiro; & referencia a var
+			printf("--- Cartorio da EBAC ---\n\n");//inicio do menu
+			printf("Escolha a opcao desejada no menu:\n\n");
+			printf("\t1 - Registrar nomes\n");
+			printf("\t2 - Consultar nomes\n");
+			printf("\t3 - Deletar nomes\n\n");
+			printf("\t4 - Sair do sistema\n\n");
+			printf("Opcao: ");//fim do menu
+	
+			scanf("%d", &opcao);	//%d armazena uma var de tipo inteiro; & referencia a var
 
-		system("cls");//cls comando para limpar o cmd
+			system("cls");//cls comando para limpar o cmd
 		
-		switch(opcao){//inicio da selecao
+			switch(opcao){//inicio da selecao
+				
+				case 1:
+				printf("deseja continuar? 1 para sim 2 para nao\nResposta: ");//sistema para confirmar continuidade
+				scanf("%d", &resposta);
+				
+				if(resposta == 1){
+				
+					system("cls");
+					registro();
+					break;
+				
+				}
+				else{
+				
+					system("cls");
+					break;
+				}
 			
-			case 1:
-			printf("deseja continuar? 1 para sim 2 para nao\nResposta: ");//sistema para confirmar continuidade
-			scanf("%d", &resposta);
+				case 2:
+				printf("deseja continuar? 1 para sim 2 para nao\nResposta: ");
+				scanf("%d", &resposta);
 			
-			if(resposta == 1){
+				if(resposta == 1){
 				
-				system("cls");
-				registro();
-				break;
+					system("cls");
+					consulta();
+					break;
 				
-			}
-			else{
-				
-				system("cls");
-				break;
-			}
+				}
+				else{
+					
+					system("cls");
+					break;
+				}
 			
-			case 2:
-			printf("deseja continuar? 1 para sim 2 para nao\nResposta: ");
-			scanf("%d", &resposta);
+				case 3:
+				printf("deseja continuar? 1 para sim 2 para nao\nResposta: ");
+				scanf("%d", &resposta);
 			
-			if(resposta == 1){
+				if(resposta == 1){
 				
-				system("cls");
-				consulta();
+					system("cls");
+					deletar();
+					break;
+				
+				}
+				else{
+					
+					system("cls");
+					break;
+				}
+					
+				case 4:
+				printf("Obrigado por utilizar o sistema\n\n");
+				return 0;
 				break;
-				
-			}
-			else{
-				
-				system("cls");
-				break;
-			}
-			
-			case 3:
-			printf("deseja continuar? 1 para sim 2 para nao\nResposta: ");
-			scanf("%d", &resposta);
-			
-			if(resposta == 1){
-				
-				system("cls");
-				deletar();
-				break;
-				
-			}
-			else{
-				
-				system("cls");
-				break;
-			}
-				
-			case 4:
-			printf("Obrigado por utilizar o sistema\n\n");
-			return 0;
-			break;
 						
-			default:
-			printf("Escolha uma opcao valida!\n\n");
-			system("pause");
-			break;
+				default:
+				printf("Escolha uma opcao valida!\n\n");
+				system("pause");
+				break;
 				
+			}
 		}
 	}//fim da selecao
-	
- 	
+		
+		else//se for false aparece isso e o progama encerra
+			system("cls");
+			printf("senha incorreta");
 	
 }
